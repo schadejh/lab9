@@ -13,7 +13,13 @@ points n
   | (n <= 3)           = 12 - 2*n
   | otherwise          = 9 - n
 
---nextOdd :: Num n => n -> Integer
+nextOdd :: Num n => n -> Integer
+nextOdd n
+	| (1 == n `mod` 2) = n+2
+	| otherwise        = n+1
+
+if (1 == n `mod` 2) then n+2 else 
+	n+1
 
 sumList :: Num p => [p] -> p
 sumList [] = 0
