@@ -22,15 +22,18 @@ sumList :: Num p => [p] -> p
 sumList [] = 0
 sumList (x:xs) = x + (sumList xs)
 
---myHead :: Integral a => [a] -> a
---myHead (x:xs) = x
+myHead :: [a] -> a
+myHead (x:xs) = x
 
---myLength :: [a] -> Int
---myLength [a]
---	| null list = 0
---	| otherwise = length list
+myLength :: [a] -> Int
+myLength list
+  | null list = 0
+  | otherwise = 1 + myLength (tail list)
 
---myLast :: ...
+myLast :: [a] -> a
+myLast (x:xs)
+  | length (x:xs) == 1 = x
+  | otherwise = myLast (tail (x:xs))
 
 fib :: Integral a => a -> a
 fib p
