@@ -9,14 +9,14 @@ divBy15 x = (0 == (x `mod` 15))
 
 points :: Integral a => a -> a
 points n
-  | (9 < n) || (n < 1) = 0
+  | (n < 1) || (n > 9) = 0
   | (n <= 3)           = 12 - 2*n
   | otherwise          = 9 - n
 
-nextOdd :: Num p => p -> Integer
-nextOdd n
-	| (1 == n `mod` 2) = 2 + n
-	| otherwise        = 1 + n
+nextOdd :: Integral p => p -> p
+nextOdd p
+  | (1 == p `mod` 2) = 2 + p
+  | otherwise        = 1 + p
 
 sumList :: Num p => [p] -> p
 sumList [] = 0
@@ -32,8 +32,16 @@ sumList (x:xs) = x + (sumList xs)
 
 --myLast :: ...
 
-fib :: Num p => p -> Integer
-fib n
-	| 0 = 1
-	| 1 = 1
-	| otherwise = fib (n-1) + fib (n-2) 
+fib :: Integral a => a -> a
+fib p
+  | p == 0 = 1
+  | p == 1 = 1
+  | otherwise = fib (p-1) + fib (p-2)
+
+ffib :: Integral a => a -> a
+ffib n = fibAccum 1 1 n
+fibAccum e0 e1 k
+  | (k == 0) = e0
+  | (k == 1) = e1
+  | otherwise = fibAccum e1 (e0+e1) (k-1)
+
