@@ -36,4 +36,4 @@ fib :: Num p => p -> Integer
 fib n
 	| 0 = 1
 	| 1 = 1
-	| otherwise = fib n + fib (n-1) 
+	| otherwise = fib (n-1) + fib (n-2) 
