@@ -13,17 +13,14 @@ points n
   | (n <= 3)           = 12 - 2*n
   | otherwise          = 9 - n
 
-nextOdd :: Num n => n -> Integer
+nextOdd :: Num p => p -> Integer
 nextOdd n
-	| (1 == n `mod` 2) = n+2
-	| otherwise        = n+1
-
-if (1 == n `mod` 2) then n+2 else 
-	n+1
+	| (1 == n `mod` 2) = 2 + n
+	| otherwise        = 1 + n
 
 sumList :: Num p => [p] -> p
 sumList [] = 0
 sumList (x:xs) = x + (sumList xs)
 
-myHead :: Integral a => [a] -> a
-myHead a = head a
+--myHead :: Integral a => [a] -> a
+--myHead (x:xs) = x
