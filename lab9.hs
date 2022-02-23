@@ -12,3 +12,10 @@ points n
   | (9 < n) || (n < 1) = 0
   | (n <= 3)           = 12 - 2*n
   | otherwise          = 9 - n
+
+sumList :: Num p => [p] -> p
+sumList [] = 0
+sumList (x:xs) = x + (sumList xs)
+
+myHead :: Integral a => [a] -> a
+myHead a = head a
