@@ -24,3 +24,16 @@ sumList (x:xs) = x + (sumList xs)
 
 --myHead :: Integral a => [a] -> a
 --myHead (x:xs) = x
+
+--myLength :: [a] -> Int
+--myLength [a]
+--	| null list = 0
+--	| otherwise = length list
+
+--myLast :: ...
+
+fib :: Num p => p -> Integer
+fib n
+	| 0 = 1
+	| 1 = 1
+	| otherwise = fib n + fib (n-1) 
